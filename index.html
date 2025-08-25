@@ -1,10 +1,133 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My GitHub Page</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pratham Mehta | Portfolio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: #0a192f;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      margin: 5px 0;
+      font-size: 1.2rem;
+    }
+    nav {
+      margin-top: 15px;
+    }
+    nav a {
+      color: #64ffda;
+      margin: 0 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h2 {
+      border-bottom: 2px solid #64ffda;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      color: #0a192f;
+    }
+    .skills, .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    footer {
+      background: #0a192f;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello, welcome to my GitHub Page!</h1>
-  <p>This is my first published web page 🚀</p>
+
+  <header>
+    <h1>Pratham Mehta</h1>
+    <p>BCA Final Year Student | Cybersecurity & Python Enthusiast</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I’m Pratham Mehta, a final year BCA student with a strong passion for 
+       <b>cybersecurity</b> and <b>Python development</b>. 
+       I enjoy exploring security concepts, ethical hacking, and building automation tools. 
+       My goal is to contribute to the tech industry by combining secure coding practices 
+       with innovative problem-solving.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="card">🔐 Cybersecurity Fundamentals</div>
+      <div class="card">🐍 Python Programming</div>
+      <div class="card">🌐 Web Development (HTML, CSS, JS)</div>
+      <div class="card">🛠️ Git & GitHub</div>
+      <div class="card">💻 SQL & Databases</div>
+      <div class="card">📊 Data Analysis Basics</div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="card">
+        <h3>Password Strength Checker</h3>
+        <p>A Python-based tool to evaluate password strength and suggest improvements.</p>
+      </div>
+      <div class="card">
+        <h3>Simple Vulnerability Scanner</h3>
+        <p>Built a basic scanner to detect common web security issues.</p>
+      </div>
+      <div class="card">
+        <h3>Personal Portfolio Website</h3>
+        <p>This website is part of my GitHub Pages learning journey 🚀.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>📧 Email: <a href="mailto:pratham.mehta@example.com">pratham.mehta@example.com</a></p>
+    <p>💼 GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
+    <p>🔗 LinkedIn: <a href="https://linkedin.com/in/username" target="_blank">linkedin.com/in/username</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Pratham Mehta | Built with ❤️ using HTML & CSS</p>
+  </footer>
+
 </body>
 </html>
