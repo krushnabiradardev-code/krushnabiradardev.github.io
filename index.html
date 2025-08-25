@@ -1,133 +1,479 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pratham Mehta | Portfolio</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #333;
-    }
-    header {
-      background: #0a192f;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-    }
-    header p {
-      margin: 5px 0;
-      font-size: 1.2rem;
-    }
-    nav {
-      margin-top: 15px;
-    }
-    nav a {
-      color: #64ffda;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    section {
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h2 {
-      border-bottom: 2px solid #64ffda;
-      padding-bottom: 10px;
-      margin-bottom: 20px;
-      color: #0a192f;
-    }
-    .skills, .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    }
-    footer {
-      background: #0a192f;
-      color: white;
-      text-align: center;
-      padding: 20px;
-      margin-top: 40px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pratham Mehta - Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .skill-bar { transition: width 1s ease-in-out; }
+        .typing-animation { 
+            border-right: 2px solid #667eea; 
+            animation: blink 1s infinite; 
+        }
+        @keyframes blink { 0%, 50% { border-color: transparent; } 51%, 100% { border-color: #667eea; } }
+        .scroll-smooth { scroll-behavior: smooth; }
+    </style>
 </head>
-<body>
-
-  <header>
-    <h1>Pratham Mehta</h1>
-    <p>BCA Final Year Student | Cybersecurity & Python Enthusiast</p>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+<body class="bg-gray-50 scroll-smooth">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-gray-800">PM</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-600 hover:text-blue-600 transition-colors">Home</a>
+                    <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors">About</a>
+                    <a href="#skills" class="text-gray-600 hover:text-blue-600 transition-colors">Skills</a>
+                    <a href="#projects" class="text-gray-600 hover:text-blue-600 transition-colors">Projects</a>
+                    <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors">Contact</a>
+                </div>
+                <button id="menuBtn" class="md:hidden text-gray-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
     </nav>
-  </header>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>Hello! I’m Pratham Mehta, a final year BCA student with a strong passion for 
-       <b>cybersecurity</b> and <b>Python development</b>. 
-       I enjoy exploring security concepts, ethical hacking, and building automation tools. 
-       My goal is to contribute to the tech industry by combining secure coding practices 
-       with innovative problem-solving.</p>
-  </section>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen gradient-bg flex items-center justify-center text-white">
+        <div class="text-center px-6">
+            <div class="mb-8">
+                <div class="w-32 h-32 mx-auto mb-6 bg-white/20 rounded-full flex items-center justify-center text-6xl">
+                    👨‍💻
+                </div>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-4">Pratham Mehta</h1>
+            <div class="text-xl md:text-2xl mb-8 h-8">
+                <span id="typingText" class="typing-animation"></span>
+            </div>
+            <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto opacity-90">
+                BCA Final Year Student specializing in Cybersecurity & Python Development
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#projects" class="bg-white text-purple-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition-colors">
+                    View My Work
+                </a>
+                <a href="#contact" class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-purple-600 transition-colors">
+                    Get In Touch
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills">
-      <div class="card">🔐 Cybersecurity Fundamentals</div>
-      <div class="card">🐍 Python Programming</div>
-      <div class="card">🌐 Web Development (HTML, CSS, JS)</div>
-      <div class="card">🛠️ Git & GitHub</div>
-      <div class="card">💻 SQL & Databases</div>
-      <div class="card">📊 Data Analysis Basics</div>
-    </div>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="w-64 h-64 mx-auto bg-gradient-to-br from-blue-400 to-purple-600 rounded-full flex items-center justify-center text-8xl text-white">
+                        🛡️
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Passionate About Cybersecurity & Development</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        I'm a dedicated BCA final year student with a strong focus on cybersecurity and Python programming. 
+                        My journey in computer applications has equipped me with comprehensive knowledge in software development, 
+                        network security, and ethical hacking practices.
+                    </p>
+                    <p class="text-gray-600 mb-8 leading-relaxed">
+                        I'm passionate about creating secure, efficient solutions and staying updated with the latest 
+                        cybersecurity threats and mitigation strategies. My goal is to contribute to making the digital 
+                        world safer through innovative security solutions.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">🎓 Education</h4>
+                            <p class="text-gray-600">BCA Final Year</p>
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-gray-800 mb-2">🎯 Focus Areas</h4>
+                            <p class="text-gray-600">Cybersecurity & Python</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects">
-      <div class="card">
-        <h3>Password Strength Checker</h3>
-        <p>A Python-based tool to evaluate password strength and suggest improvements.</p>
-      </div>
-      <div class="card">
-        <h3>Simple Vulnerability Scanner</h3>
-        <p>Built a basic scanner to detect common web security issues.</p>
-      </div>
-      <div class="card">
-        <h3>Personal Portfolio Website</h3>
-        <p>This website is part of my GitHub Pages learning journey 🚀.</p>
-      </div>
-    </div>
-  </section>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Skills & Expertise</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cybersecurity Skills -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="text-4xl mb-4">🔒</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Cybersecurity</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">Network Security</span>
+                                <span class="text-sm text-gray-600">85%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-blue-600 h-2 rounded-full" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">Ethical Hacking</span>
+                                <span class="text-sm text-gray-600">80%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-blue-600 h-2 rounded-full" style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">Vulnerability Assessment</span>
+                                <span class="text-sm text-gray-600">75%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-blue-600 h-2 rounded-full" style="width: 0%" data-width="75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>📧 Email: <a href="mailto:pratham.mehta@example.com">pratham.mehta@example.com</a></p>
-    <p>💼 GitHub: <a href="https://github.com/username" target="_blank">github.com/username</a></p>
-    <p>🔗 LinkedIn: <a href="https://linkedin.com/in/username" target="_blank">linkedin.com/in/username</a></p>
-  </section>
+                <!-- Programming Skills -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="text-4xl mb-4">🐍</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Programming</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">Python</span>
+                                <span class="text-sm text-gray-600">90%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-green-600 h-2 rounded-full" style="width: 0%" data-width="90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">Java</span>
+                                <span class="text-sm text-gray-600">75%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-green-600 h-2 rounded-full" style="width: 0%" data-width="75%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">SQL</span>
+                                <span class="text-sm text-gray-600">80%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-green-600 h-2 rounded-full" style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-  <footer>
-    <p>© 2025 Pratham Mehta | Built with ❤️ using HTML & CSS</p>
-  </footer>
+                <!-- Tools & Technologies -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover">
+                    <div class="text-4xl mb-4">🛠️</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">Tools & Technologies</h3>
+                    <div class="space-y-3">
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">Kali Linux</span>
+                                <span class="text-sm text-gray-600">85%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-purple-600 h-2 rounded-full" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">Wireshark</span>
+                                <span class="text-sm text-gray-600">80%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-purple-600 h-2 rounded-full" style="width: 0%" data-width="80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="flex justify-between mb-1">
+                                <span class="text-sm text-gray-600">Git & GitHub</span>
+                                <span class="text-sm text-gray-600">85%</span>
+                            </div>
+                            <div class="bg-gray-200 rounded-full h-2">
+                                <div class="skill-bar bg-purple-600 h-2 rounded-full" style="width: 0%" data-width="85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-</body>
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Featured Projects</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-6xl text-white">
+                        🔐
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Password Security Analyzer</h3>
+                        <p class="text-gray-600 mb-4">Python-based tool that analyzes password strength and provides security recommendations using advanced algorithms.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm">Security</span>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center text-6xl text-white">
+                        🌐
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Network Vulnerability Scanner</h3>
+                        <p class="text-gray-600 mb-4">Automated network scanning tool built with Python to identify potential security vulnerabilities in network infrastructure.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-sm">Networking</span>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-gray-50 rounded-xl overflow-hidden shadow-lg card-hover">
+                    <div class="h-48 bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center text-6xl text-white">
+                        📊
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Cybersecurity Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Real-time security monitoring dashboard with threat detection and incident response capabilities.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm">Python</span>
+                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">Dashboard</span>
+                        </div>
+                        <button class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
+                            View Project
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 text-lg">Let's connect and discuss opportunities in cybersecurity and development</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div>
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
+                                📧
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Email</p>
+                                <p class="text-gray-600">pratham.mehta@email.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
+                                📱
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">Phone</p>
+                                <p class="text-gray-600">+91 XXXXX XXXXX</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
+                                💼
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">LinkedIn</p>
+                                <p class="text-gray-600">linkedin.com/in/pratham-mehta</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-4">
+                                🐙
+                            </div>
+                            <div>
+                                <p class="font-semibold text-gray-800">GitHub</p>
+                                <p class="text-gray-600">github.com/pratham-mehta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Send a Message</h3>
+                    <p class="text-sm text-gray-500 mb-6 bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+                        📝 <strong>Demo Form:</strong> This is a sample contact form for portfolio demonstration purposes.
+                    </p>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Name</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your Name">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="your.email@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-gray-700 font-medium mb-2">Message</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Your message..."></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2024 Pratham Mehta. All rights reserved.</p>
+            <p class="text-gray-400 mt-2">BCA Student | Cybersecurity Enthusiast | Python Developer</p>
+        </div>
+    </footer>
+
+    <script>
+        // Typing animation
+        const texts = [
+            "Cybersecurity Enthusiast",
+            "Python Developer", 
+            "BCA Student",
+            "Security Researcher",
+            "Problem Solver"
+        ];
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typingText');
+
+        function typeText() {
+            const currentText = texts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % texts.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeText, typeSpeed);
+        }
+
+        // Start typing animation
+        typeText();
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animate skill bars when they come into view
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBars = entry.target.querySelectorAll('.skill-bar');
+                    skillBars.forEach(bar => {
+                        const width = bar.getAttribute('data-width');
+                        setTimeout(() => {
+                            bar.style.width = width;
+                        }, 200);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.bg-white.p-8.rounded-xl.shadow-lg').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const nav = document.querySelector('nav div div div:nth-child(2)');
+        
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('hidden');
+        });
+
+        // Form submission handler
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! This is a demo form - in a real portfolio, this would send an email.');
+        });
+
+        // Project button handlers
+        document.querySelectorAll('button:contains("View Project")').forEach(btn => {
+            btn.addEventListener('click', function() {
+                alert('This would open the project details or GitHub repository in a real portfolio!');
+            });
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974b81ac021b032c',t:'MTc1NjEyOTI4Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
